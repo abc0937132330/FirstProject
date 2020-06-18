@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>註冊</title>
+<style>
+@import url(assets/css/Registration.css);
+</style>
+</head>
+<script language="JavaScript">
+	function Database() {
+		var fm = document.userform;
+		str1 = new String(fm.user.value);//取得帳號的欄位值
+		var reg1 = /^([A-Z]|[a-z])[0-9]{5}$/;//帳號欄位正規
+		str2 = new String(fm.password.value);//取得密碼的欄位值
+		var reg2 = /^\w{4}$/;//密碼欄位正規
+		var reg3 = /^(\D&\S)$/;//名字欄位正規
+		var reg5 = /^\w+((\-\w+)|(\.\w+))*\@\w+((\.|\-)\w+)*\.[A-Za-z]+$/;//email欄位正規
+		
+		if (reg1.test(str1) == false) {//設定帳號格式
+			alert("帳號格式錯誤，請重新輸入!!");
+			reinput1();
+		}else if (reg2.test(str2) == false) {//設定密碼格式
+			alert("密碼格式錯誤，請重新輸入!!")
+			reinput2();
+		}else if (reg3.test(fm.name.value) == true) {//設定名字格式//取得名字欄位值是否符合正規
+			alert("名字不符合規定，請重新輸入!!");
+			reinput3();
+		}else if (reg5.test(fm.email.value) == false) {//取得email欄位值是否符合正規
+			alert("email輸入錯誤，請重新輸入!!");
+			reinput5();
+
+		//合格的email規格  
+		//在 @ 前面及後面可以用 「-」或是「.」 
+		//在 @ 前面及後面的 「-」及「.」不能連在一起
+		//特殊符號需要用跳脫字元 "\"
+		
+		}else
+			document.userform.submit();
+	    
+		function reinput1() {
+			document.userform.user.focus();
+			document.userform.user.select();
+		}
+		function reunput2() {
+			document.userform.password.focus();
+			document.userform.password.select();
+		}
+		function reunput3() {
+			document.userform.name.focus();
+			document.userform.name.select();
+		}
+		function reinput5() {
+			document.userform.email.focus();
+			document.userform.email.select();
+		}
+		
+	}
+</script>
+
+
+<body>
+	<a  href="index.jsp" target="_parent" >回首頁</a><p><a href="Login.jsp" target="_parent" >登入會員</a>
+	<h2 align="center">會員基本資料</h2>
+	<form name="userform" method="post"
+		action="http://localhost:8080/Project/HomeWork">
+		<fieldset >
+			<p>
+				<span style="color: red;">* </span>帳號[首字英文其餘數字(6碼)]:<input type="text"  placeholder="請輸入帳號" autofocus
+					name="user" size=12>
+			</p>
+			<p>
+				<span style="color: red;">* </span>密碼[文數字(4碼)]: <input type="text" placeholder="請輸入密碼" name="password"
+					size=12>
+			</p>
+			<p>
+				<span style="color: red;">* </span>姓名: <input type="text" name="name" size=12>
+			</p>
+			<p>
+				<span style="color: red;">* </span>性別: <input type="radio" name="gender" value="M">男 <input
+					type="radio" name="gender" value="F">女
+			</p>
+			<p>
+				<span style="color: red;">* </span>電子信箱: <input type="email" name="email">
+			</p>
+			<p style="color: red">*:必須輸入</p>
+			<input id="input"  type="button" onclick="Database()" value="送出"> 
+			<input id="input"  type="reset" value="重新填寫">
+		</fieldset>
+	</form>
+</body>
+</html>
