@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>會員登入</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style>
+@import url(assets/css/Login.css);
+
+.container-fluid {
+	border: 1px double;
+	margin: 10px auto;
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px 3px gray;
+	height: 45px;
+	font-family: sans-serif;
+}
+
+body {
+	font-family: sans-serif;
+}
+</style>
+<script lang="JavaScript">
+	function chDataBase() {
+		var fm = document.Loginform;
+		str1 = new String(fm.user.value);
+		var reg1 = /^([A-Z]|[a-z])[0-9]{5}$/;//帳號正規
+		str2 = new String(fm.password.value);
+		var reg2 = /^\w{4}$/;
+
+		//var checked = false;
+		if (reg1.test(str1) == false || reg2.test(str2) == false) {
+			alert("帳號錯誤!! 請重新輸入");
+			reinput();
+		} else
+			document.Loginform.submit();
+	}
+	function reinput() {
+		document.Loginform.user.focus();
+		document.Loginform.user.select();
+	}
+</script>
+</head>
+
+<body>
+	<div class="container-fluid bg-secondary" >
+		<div class="row justify-content-start">
+			<div class="col-4">
+				<a class="text-white" href="index.jsp" target="_parent" >回首頁</a>
+			</div>
+		</div>
+	</div>
+	<form name="Loginform" method="post"
+		action="http://localhost:8080/Project/CheckUser">
+		<h2 align="center">會員登入</h2>
+		<fieldset align="center">
+			<p align="center">
+				會員帳號 : <input type="text" placeholder="請輸入會員帳號" autofocus
+					name="user" size="14">
+			</p>
+			<p align="center">
+				會員密碼 : <input type="password" placeholder="請輸入會員密碼" autofocus
+					name="password" size="14">
+			</p>
+			<p align="center">
+				<input id="input" type="button" onclick="chDataBase()" value="送出">
+				<input id="input" type="reset" value="重新輸入">
+		</fieldset>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

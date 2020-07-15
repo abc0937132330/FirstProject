@@ -1,0 +1,18 @@
+fieldset {
+	box-shadow: 10px 10px 5px 5px gray;
+	border-radius: 20px;
+	min-width: 400px;
+	max-width: 20%;
+	margin: 5px auto;
+	border: #000 3px double;
+}
+
+#input{
+	border-radius: 3px;
+	padding: 3px;
+	background-color: rgba(62, 95, 243, 0.918);
+	color: rgb(250, 250, 250);
+	border-radius: 5px;
+	margin: 1px 10px 1px;
+	font-size: medium;
+}
