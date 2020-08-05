@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").mouseenter(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+<style> 
+#flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  padding: 20px;
+  display: none;
+}
+button{
+width:80px;
+height:80px;
+display:inline-block;
+}
+</style>
+</head>
+<body>
+ 
+<div id="flip" >Click to slide down panel</div>
+<div id="panel">
+ <button >touch me </button>
+ <button >cut me </button>
+ <button >puch me </button>
+</div>
+
+</body>
+</html>
